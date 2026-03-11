@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <svg class="circles" width="265px" height="265px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none"
+    <svg class="circles" width="15%" height="30%" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none"
         stroke="#2C5F4E" stroke-width="2.6239999999999997" transform="rotate(180)">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#2C5F4ECCCCCC"
@@ -19,7 +19,8 @@
         </g>
     </svg>
     <div class="container">
-        <?php require_once 'templates/nav.php' ?>
+        <?php $activePage = 'home';
+        require_once 'templates/nav.php' ?>
         <main>
             <div class="greetings">
                 <h1>Hello, Artem Shunda!👋</h1>
@@ -39,9 +40,11 @@
 
                     </div>
                     <div class="kanban-element-footer">
-                        <div class="plus-button">
-                            <?php require 'templates/plus.php' ?>
-                        </div>
+                        <a class="create-butt" href="create.php">
+                            <div class="plus-button">
+                                <?php require 'templates/plus.php' ?>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="kanban-element in-progress">
@@ -58,9 +61,11 @@
 
                     </div>
                     <div class="kanban-element-footer">
-                        <div class="plus-button">
-                            <?php require 'templates/plus.php' ?>
-                        </div>
+                        <a class="create-butt" href="create.php">
+                            <div class="plus-button">
+                                <?php require 'templates/plus.php' ?>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="kanban-element done">
@@ -74,15 +79,17 @@
 
                     </div>
                     <div class="kanban-element-footer">
-                        <div class="plus-button">
-                            <?php require 'templates/plus.php' ?>
-                        </div>
+                        <a class="create-butt" href="create.php">
+                            <div class="plus-button">
+                                <?php require 'templates/plus.php' ?>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-
+    <script src="js/script.js"></script>
 </body>
 
 </html>
