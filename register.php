@@ -23,9 +23,9 @@
                     <label for="email">E-mail:</label>
                     <input type="email" placeholder="example@gmail.com" name="email">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" placeholder="pass123">
+                    <input type="password" name="password">
                     <label for="password_check">Password Check:</label>
-                    <input type="password" name="password_check" placeholder="pass123">
+                    <input type="password" name="password_check">
                     <input type="submit" name="submit" value="Sign Up" class="form-submit">
                 </form>
                 <?php require_once "templates/const.php"?>

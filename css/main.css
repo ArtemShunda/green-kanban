@@ -16,6 +16,9 @@ html {
     line-height: 1.4;
     font-family: "Roboto", sans-serif;
 }
+body {
+    overflow: hidden;
+}
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -128,10 +131,12 @@ nav {
     justify-content: center;
     align-items: center;
 
+    animation: slideIn 1s ease;
     box-shadow: 1px 1px 10px #0d892e;
     transition:
         width 0.5s ease,
-        grid-template-columns 0.25s ease;
+        grid-template-columns 0.25s ease,
+        transform 0.35s ease;
 }
 nav.expanded {
     width: 175px;
@@ -216,6 +221,9 @@ main {
 .greetings h3 {
     color: #999;
 }
+.greetings h1:not(.main-title), h3{
+    animation: slideDown 1s ease forwards;
+}
 .main-title {
     margin-top: 50px;
     margin-left: 200px;
@@ -238,6 +246,14 @@ main {
     border: 3px solid #0d892e;
     border-radius: 20px;
     padding-left: 30px;
+    transform: translateY(150%);
+    animation: slideUp 1s ease forwards;
+}
+.kanban-element:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.kanban-element:nth-child(3){
+    animation-delay: 0.4s;
 }
 .kanban-element h1 {
     width: 85%;
@@ -339,8 +355,9 @@ input {
     border: 2px solid #d9d9d9;
     border-radius: 10px;
 }
-input:not([type = 'submit']), textarea{
-  padding-left: 10px;
+input:not([type="submit"]),
+textarea {
+    padding-left: 10px;
 }
 label {
     margin-top: 4%;
@@ -392,17 +409,17 @@ edit/create
     display: flex;
     flex-direction: column;
 }
-select{
-  border: 2px solid #d9d9d9;
-  border-radius: 10px;
-  padding-left: 10px;
+select {
+    border: 2px solid #d9d9d9;
+    border-radius: 10px;
+    padding-left: 10px;
 }
-textarea{
-  height: 160px;
-  resize: none;
-  border: 2px solid #d9d9d9;
-  border-radius: 10px;
-  padding-top: 8px;
+textarea {
+    height: 160px;
+    resize: none;
+    border: 2px solid #d9d9d9;
+    border-radius: 10px;
+    padding-top: 8px;
 }
 
 /* ==========================================================================
@@ -576,5 +593,34 @@ textarea{
     h2,
     h3 {
         page-break-after: avoid;
+    }
+}
+/* 
+=========================================
+animations
+========================================= 
+*/
+@keyframes slideIn {
+    from {
+        transform: translateX(-150%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(150%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes slideDown{
+    from{
+        transform: translateY(-350px);
+    }
+    to{
+        transform: translateY(0)
     }
 }
