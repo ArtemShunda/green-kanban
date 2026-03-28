@@ -226,11 +226,10 @@ h3 {
     animation: slideDown 1s ease forwards;
 }
 .main-title {
-    margin-top: 50px;
-    margin-left: 200px;
-    text-decoration: underline;
+    margin-top: -50px;
+    margin-left: 100px;
 }
-.circles {
+.main-logo {
     position: absolute;
     top: 0;
     right: 0;
