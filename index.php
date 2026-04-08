@@ -16,6 +16,14 @@ session_start();
 </head>
 
 <body>
+
+    <?php require_once 'backend/conn.php';
+    $query = "SELECT * FROM taken";
+    $statement = $conn->prepare(query: $query);
+    $statement->execute();
+    $takenlijst = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
+    ?>
+
     <div class="container">
         <?php $activePage = 'home';
         require_once 'templates/nav.php' ?>
@@ -37,13 +45,37 @@ session_start();
                         </div>
                     </div>
                     <div class="kanban-element-main">
-                        <?php require 'templates/task.php' ?>
-                        <?php require 'templates/task.php' ?>
-                        <?php require 'templates/task.php' ?>
-                        <?php require 'templates/task.php' ?>
-                        <?php require 'templates/task.php' ?>
-                        <?php require 'templates/task.php' ?>
-                        <?php require 'templates/task.php' ?>
+                        <?php foreach ($takenlijst as $taken): ?>
+                            <?php if ($taken['status'] == 'todo'): ?>
+                                <div class="task-block">
+                                    <h1 class="task-name"><a class="none"
+                                            href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
+                                    <div class="task-profile-block">
+                                        <div class="taskpp">
+                                            <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="task-info">
+                                        <div>
+                                            <p class="author-name">
+                                                [<?= $taken['user'] ?>]
+                                            </p>
+                                        </div>
+                                        <div class="department-display">
+                                            <p><?= $taken['afdeling'] ?></p>
+                                        </div>
+                                        <div class="description-block">
+                                            <p class="description">
+                                                <?= $taken['beschrijving'] ?>
+                                            </p>
+                                        </div>
+                                        <div class="date-block">
+                                            <p><?= $taken['deadline'] ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                     <div class="kanban-element-footer">
                         <a class="create-butt" href="create.php">
@@ -55,17 +87,40 @@ session_start();
                 </div>
                 <div class="kanban-element in-progress">
                     <div class="kanban-element-header">
-                            <h1>In Progress</h1>
+                        <h1>In Progress</h1>
                         <div class="dots">
                             <?php require 'templates/dots.php' ?>
                         </div>
                     </div>
                     <div class="kanban-element-main">
-                        <?php foreach ($takenlijst as $taken): ?>     
+                        <?php foreach ($takenlijst as $taken): ?>
                             <?php if ($taken['status'] == 'inprogress'): ?>
-                                <div class="card">
-                                    <h2><a class="none" href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h2>
-                                    <p><?= $taken['beschrijving'] ?></p>
+                                <div class="task-block">
+                                    <h1 class="task-name"><a class="none"
+                                            href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
+                                    <div class="task-profile-block">
+                                        <div class="taskpp">
+                                            <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="task-info">
+                                        <div>
+                                            <p class="author-name">
+                                                [<?= $taken['user'] ?>]
+                                            </p>
+                                        </div>
+                                        <div class="department-display">
+                                            <p><?= $taken['afdeling'] ?></p>
+                                        </div>
+                                        <div class="description-block">
+                                            <p class="description">
+                                                <?= $taken['beschrijving'] ?>
+                                            </p>
+                                        </div>
+                                        <div class="date-block">
+                                            <p><?= $taken['deadline'] ?></p>
+                                        </div>
+                                    </div>
                                 </div>
                             <?php endif; ?>
                         <?php endforeach; ?>
@@ -86,6 +141,37 @@ session_start();
                         </div>
                     </div>
                     <div class="kanban-element-main">
+                        <?php foreach ($takenlijst as $taken): ?>
+                            <?php if ($taken['status'] == 'done'): ?>
+                                <div class="task-block">
+                                    <h1 class="task-name"><a class="none"
+                                            href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
+                                    <div class="task-profile-block">
+                                        <div class="taskpp">
+                                            <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="task-info">
+                                        <div>
+                                            <p class="author-name">
+                                                [<?= $taken['user'] ?>]
+                                            </p>
+                                        </div>
+                                        <div class="department-display">
+                                            <p><?= $taken['afdeling'] ?></p>
+                                        </div>
+                                        <div class="description-block">
+                                            <p class="description">
+                                                <?= $taken['beschrijving'] ?>
+                                            </p>
+                                        </div>
+                                        <div class="date-block">
+                                            <p><?= $taken['deadline'] ?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </div>
                     <div class="kanban-element-footer">
                         <a class="create-butt" href="create.php">
