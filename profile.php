@@ -1,5 +1,10 @@
 <?php
 session_start();
+// if (!isset($_SESSION['user_id'])) {
+//     $msg = "Je moet eerst inloggen!";
+//     header("Location: ../../../login.php?msg=$msg");
+//     exit;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,25 +23,17 @@ session_start();
         </g>
     </svg>
     <div class="container">
-        <?php $activePage = 'registration';
+        <?php $activePage = 'profile';
         require_once "templates/nav.php" ?>
         <main id="reg" class="registration">
-            <div class="registration-block">
-                <h1 class="regh">Log in</h1>
-                <form class="registration-form" action="/app/Http/Controllers/loginController.php" method="post">
-                    <label for="username">E-mail:</label>
-                    <input type="text" placeholder="example@gmail.com" name="username">
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" placeholder="pass123">
-                    <div>
-                        <input type="submit" name="submit" value="Log in" class="form-submit">
-                        <a href="register.php"><button style="width: 24%" type="button" class="form-submit unactive">Sign Up</button></a>
-                    </div>
+            <div class="profile-block">
+                <form action="/app/Http/Controllers/logoutController.php">
+                    <button class="form-sumbit">
+                        Log Out
+                    </button>
                 </form>
-                <?php require_once "templates/const.php" ?>
             </div>
         </main>
     </div>
 </body>
-
 </html>

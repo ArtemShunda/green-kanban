@@ -80,8 +80,15 @@
     </div>
     <p></p>
     <div class="nav-element pp <?= $activePage === 'registration' ? 'active' : '' ?>">
-        <a href="register.php">
-            <img class="profile-picture" src="img/user-photo.jpg" alt="">
-        </a>
+        <?php if (!isset($_SESSION['user_id'])): ?>
+            <a href="login.php">
+                <img class="profile-picture" src="img/user-photo.jpg" alt="">
+            </a>
+        <?php endif ?>
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <a href="profile.php">
+                <img class="profile-picture" src="img/user-photo.jpg" alt="">
+            </a>
+        <?php endif ?>
     </div>
 </nav>
