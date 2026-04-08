@@ -48,6 +48,8 @@
                                 <div class="card">
                                     <h2><a class="none" href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a>
                                     </h2>
+                                    <p>[username] [<?=$taken['user'] ?>]</p>
+                                    <p><?=$taken['deadline'] ?></p>
                                     <p><?= $taken['beschrijving'] ?></p>
                                 </div>
                             <?php endif; ?>
