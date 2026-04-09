@@ -1,31 +1,29 @@
 <?php
+session_start(); 
+
+require_once '../../../backend/conn.php';
 
 $action = $_POST['action'];
 
 if($action == "create"){
-
-    //variabelen
+  
     $title = $_POST['title'];
-    if(empty($title)){
-    $errors[] = "Please enter task name!";
-    }
     $beschrijving = $_POST['beschrijving'];
     $afdeling = $_POST['afdeling'];
-    if(empty($afdeling)){
-    $errors[] = "Please select a department!";
-    }
-    $status = //TODO: status;
+    $status = $_POST['status'];
     $deadline = $_POST['deadline'];
-    $user_id = $_SESSION['user_id'];
-    $created_at = //TODO: created_at;
+    $user = $_SESSION['user'];
+    $created_at = date('Y-m-d H:i:s'); 
 
-    //validatie
+    if(empty($title)){
+        $errors[] = "Please enter task name!";
+    }
+    if(empty($afdeling)){
+        $errors[] = "Please select a department!";
+    }
 
-
-
-    require_once '../../../backend/conn.php';
-
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user_id, created_at) VALUES ('$title', '$beschrijving', '$afdeling', '$status', '$deadline', '$user_id', '$created_at')";
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user, created_at) 
+              VALUES (:title, :beschrijving, :afdeling, :status, :deadline, :user, :created_at)";
 
     $statement = $conn->prepare($query);
 
@@ -35,52 +33,47 @@ if($action == "create"){
         ':afdeling' => $afdeling,
         ':status' => $status,
         ':deadline' => $deadline,
-        ':user_id' => $user_id,
+        ':user' => $user,
         ':created_at' => $created_at
     ]);
 
-    header("Location: ../../../index.php");
-
+    header("Location: ../../../index.php?msg=Melding opgeslagen");
+    exit;
 
 } elseif($action == "edit"){
-    
-    //variabelen
+
+
+    $id = $_POST['id'];
     $title = $_POST['title'];
-    $beschrijving = $_POST['beschrijving'];
+    $beschrijving = $_POST['beschrijving']; 
     $afdeling = $_POST['afdeling'];
-    $status = //TODO: status;
+    $status = $_POST['status']; 
     $deadline = $_POST['deadline'];
-    $user_id = $_SESSION['user_id'];
-    $created_at = $_POST['created_at'];
 
-    require_once '../../../backend/conn.php';
 
-    $query = "UPDATE taken SET titel = '$title', beschrijving = '$beschrijving', afdeling = '$afdeling', deadline = '$deadline' WHERE id = :id";
+    $query = "UPDATE taken SET titel = :title, beschrijving = :beschrijving, afdeling = :afdeling, status = :status, deadline = :deadline WHERE id = :id";
 
-        $statement->execute([
+    $statement = $conn->prepare($query); 
+    $statement->execute([
         ':title' => $title,
         ':beschrijving' => $beschrijving,
         ':afdeling' => $afdeling,
         ':status' => $status,
         ':deadline' => $deadline,
-        ':user_id' => $user_id,
-        ':created_at' => $created_at
+        ':id' => $id
     ]);
 
-    header("Location: $base_url/index.php");
+    header("Location: ../../../index.php?msg=Taak aangepast");
+    exit;
 
 } elseif($action == "delete"){
     
-    require_once '../../../backend/conn.php';
-
     $query = "DELETE FROM taken WHERE id = :id";
-
-        $statement = $conn->prepare($query);
-
-        $statement->execute([
-        ':id' => $_POST['id']
+    $statement = $conn->prepare($query);
+    $statement->execute([
+        ':id' => $_POST['id'] 
     ]);
 
     header("Location: ../../../index.php");
-
+    exit;
 }
