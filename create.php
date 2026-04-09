@@ -2,6 +2,8 @@
 session_start();
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +15,9 @@ session_start();
         <main id="edit">
             <h1 class="repo-name">Create new issue in curio-lesmateriaal/pra-b3-2026-feb-artem-kailash-famke</h1>
             <div class="create-block">
-                <form class="create-form" action="<?php echo $base_url; ?>/app/Http/Controllers/takenController.php" method="POST">
-                    <input type="hidden" name="status" value="inprogress">
+                <form class="create-form" action="app/Http/Controllers/takenController.php" method="POST">
+                    <input type="hidden" name="status" value="todo">
+                    <input type="hidden" name="status" value="todo">
                     
                     <label for="title">Add a Title:</label>
                     <input placeholder="Title" type="text" name="title">
@@ -23,12 +26,12 @@ session_start();
                         <label for="afdeling">Afdeling</label>
                         <label for="deadline">Deadline</label>
                         <select name="afdeling">
-                            <option value="personeel">Personeel</option>
-                            <option value="horeca">Horeca</option>
-                            <option value="techniek">Techniek</option>
-                            <option value="inkoop">Inkoop</option>
-                            <option value="klantenservice">Klant</option>
-                            <option value="groen">Groen</option>
+                            <option value="Personeel">Personeel</option>
+                            <option value="Horeca">Horeca</option>
+                            <option value="Techniek">Techniek</option>
+                            <option value="Inkoop">Inkoop</option>
+                            <option value="Klant">Klant</option>
+                            <option value="Groen">Groen</option>
                         </select>
                         <input type="date" name="deadline" id="deadline">
                     </div>

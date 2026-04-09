@@ -23,12 +23,12 @@ session_start();
                     <div class="select-area">
                         <label for="afdeling">Afdeling</label>
                         <select name="afdeling">
-                            <option value="personeel">Personeel</option>
-                            <option value="horeca">Horeca</option>
-                            <option value="techniek">Techniek</option>
-                            <option value="inkoop">Inkoop</option>
-                            <option value="klantenservice">Klantenservice</option>
-                            <option value="groen">Groen</option>
+                            <option value="Personeel">Personeel</option>
+                            <option value="Horeca">Horeca</option>
+                            <option value="Techniek">Techniek</option>
+                            <option value="Inkoop">Inkoop</option>
+                            <option value="Klant">Klant</option>
+                            <option value="Groen">Groen</option>
                         </select>
 
                         <label for="status">Status</label>

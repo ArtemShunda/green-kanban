@@ -12,8 +12,13 @@ if($action == "create"){
     $afdeling = $_POST['afdeling'];
     $status = $_POST['status'];
     $deadline = $_POST['deadline'];
-    $user = $_SESSION['user'];
+    $user = $_SESSION['user_id'] ?? null;
     $created_at = date('Y-m-d H:i:s'); 
+
+    if (!$user) {
+         header("Location: ../../../login.php?msg=Je moet eerst inloggen!");  // Ai slop heeft dit gemaakt GEEN idee wtf dit doet -Kailash
+        exit;
+    }
 
     if(empty($title)){
         $errors[] = "Please enter task name!";

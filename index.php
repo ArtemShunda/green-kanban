@@ -5,6 +5,11 @@ session_start();
 //     header("Location: ../../../login.php?msg=$msg");
 //     exit;
 // }
+    // echo "<pre>";
+    //  print_r($_SESSION['user_id']);
+    // echo "</pre>";
+    // die();
+
 ?>
 <!doctype html>
 <html lang="nl">
@@ -23,6 +28,13 @@ session_start();
     $statement->execute();
     $takenlijst = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
     ?>
+    <?php require_once 'backend/conn.php';
+    $query = "SELECT * FROM users";
+    $statement = $conn->prepare($query);
+    $statement->execute();
+    $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+    
 
     <div class="container">
         <?php $activePage = 'home';
@@ -157,7 +169,7 @@ session_start();
                                     <div class="task-info">
                                         <div>
                                             <p class="author-name">
-                                                [<?= $taken['user'] ?>]
+                                                    [<?= $taken['user'] ?>]
                                             </p>
                                         </div>
                                         <div class="department-display">
