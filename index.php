@@ -32,9 +32,12 @@ session_start();
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <h1>Hello, <?php echo $_SESSION['name'] ?>!👋</h1>
                 <?php endif ?>
+                <?php if (!isset($_SESSION['user_id'])): ?>
+                    <h1>Hello, anoniem!👋</h1>
+                <?php endif ?>
                 <h1></h1>
                 <h3 class="greetings-quest">What do you want to do today?</h3>
-                <img class="main-logo" width="230px" src="img/logo-big-fill-only.png" alt="">
+                <img class="main-logo" width="210px" src="img/logo-big-fill-only.png" alt="">
             </div>
             <div class="kanban">
                 <div class="kanban-element to-do">

@@ -3,7 +3,6 @@
 <?php require_once "templates/head.php" ?>
 
 <body>
-
     <div class="container">
         <?php $activePage = 'registration';
         require_once "templates/nav.php" ?>

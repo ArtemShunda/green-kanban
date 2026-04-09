@@ -334,7 +334,7 @@ h3 {
     grid-template-columns: 16% 1fr;
     grid-template-areas: "taskName taskName" "profilePicture info";
 }
-.task-block{
+.task-block {
     margin-bottom: 20px;
 }
 .task-name {
@@ -347,7 +347,7 @@ h3 {
     align-items: center;
     padding-left: 10px;
 }
-.task-profile-block{
+.task-profile-block {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -377,14 +377,14 @@ h3 {
     background: green;
     margin-top: 20%;
 }
-.author-name{
+.author-name {
     width: 100px;
     font-size: 19px;
     width: 20px;
     margin-left: 8px;
     color: #5a5a5a;
 }
-.department-display{
+.department-display {
     width: 70px;
     height: 30px;
     background: #2c5f4e;
@@ -396,19 +396,19 @@ h3 {
     margin-top: auto;
     margin-left: auto;
 }
-.department-display p{
+.department-display p {
     text-align: center;
 }
-.description-block{
+.description-block {
     display: flex;
     padding-bottom: 20px;
 }
-.description{
+.description {
     font-size: 14px;
     margin-left: 8px;
     color: #b3b3b3;
 }
-.date-block{
+.date-block {
     width: 80px;
     height: 30px;
     font-size: 12px;
@@ -546,11 +546,71 @@ profile
 ====================================
 */
 .profile-block {
-    width: 60%;
+    width: 70%;
     height: 500px;
     border: 3px solid #2c5f4e;
     border-radius: 10px;
     display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 100%;
+}
+.personal-info-block {
+    display: grid;
+    grid-template-rows: 40% 15% 1fr;
+    grid-template-columns: 100%;
+    padding-top: 40px;
+}
+.profile-block-border {
+    width: 60%;
+    height: 180px;
+    overflow: hidden;
+    border: 3px solid #3e8069;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.profile-picture-block {
+    max-width: 200px;
+    height: auto;
+}
+.personal-username {
+    text-align: center;
+    margin-top: 10px;
+}
+.logOut {
+    width: 30%;
+    height: 40px;
+    margin-top: 10%;
+    border-radius: 10px;
+    background: #2c5f4e;
+    color: white;
+    border: none;
+}
+.personal-info-block form {
+    display: flex;
+    justify-content: center;
+}
+.own-tasks {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    overflow-x: hidden;
+}
+.own-tasks::-webkit-scrollbar {
+    width: 8px;
+    height: 0;
+}
+.own-tasks::-webkit-scrollbar-track {
+    background: transparent;
+}
+.own-tasks::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #b3b3b3;
+}
+.own-tasks::-webkit-scrollbar-button {
+    display: none;
 }
 /* ==========================================================================
    Helper classes

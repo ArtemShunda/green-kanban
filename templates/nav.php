@@ -67,7 +67,7 @@
             </g>
         </svg>
     </div>
-    <div class="nav-element">
+    <div class="nav-element darkmode">
         <svg viewBox="-6 -5 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fffffff">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
