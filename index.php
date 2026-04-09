@@ -5,10 +5,7 @@ session_start();
 //     header("Location: ../../../login.php?msg=$msg");
 //     exit;
 // }
-    // echo "<pre>";
-    //  print_r($_SESSION['user_id']);
-    // echo "</pre>";
-    // die();
+
 
 ?>
 <!doctype html>
@@ -200,11 +197,6 @@ session_start();
         </main>
     </div>
     <script src="js/script.js"></script>
-    <?php
-    echo "<pre>";
-    print_r($taken);
-    echo "</pre>";
-    ?>
 </body>
 
 </html>
