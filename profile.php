@@ -54,7 +54,7 @@ session_start();
                                     <div class="task-info">
                                         <div>
                                             <p class="author-name">
-                                                    [<?= $taken['user'] ?>]
+                                                    <?= $taken['username']; ?>[<?= $taken['user'] ?>]
                                             </p>
                                         </div>
                                         <div class="department-display">
@@ -62,7 +62,10 @@ session_start();
                                         </div>
                                         <div class="description-block">
                                             <p class="description">
-                                                <?= $taken['beschrijving'] ?>
+                                                <?php if (mb_strlen($taken['beschrijving'], "UTF-8") > 15) {
+                                                    $taken['beschrijving'] = mb_substr($taken['beschrijving'], 0, 14, "UTF-8") . '...';
+                                                }
+                                                echo $taken['beschrijving']; ?>
                                             </p>
                                         </div>
                                         <div class="date-block">
