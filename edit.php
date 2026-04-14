@@ -71,6 +71,7 @@ $id = $_GET['id']
             </div>
         </main>
     </div>
+    <script src="js/darkmode.js"></script>
 </body>
 
 </html>

@@ -21,7 +21,7 @@ session_start();
         <?php $activePage = 'profile';
         require_once "templates/nav.php" ?>
         <main id="reg" class="registration">
-            <div class="profile-block">
+            <div class="profile-block"> 
                 <div class="personal-info-block">
                     <div class="profile-block-border">
                         <img class="profile-picture-block" src="img/user-photo.jpg" alt="">
@@ -41,44 +41,47 @@ session_start();
                     </form>
                 </div>
                 <div class="own-tasks">
-                     <?php foreach ($takenlijst as $taken): ?>
-                            <?php if ($taken['user'] == $_SESSION['user_id']): ?> <!-- Hier moet een naam filter ooit komen -Kailash -->
-                                <div class="task-block">
-                                    <h1 class="task-name"><a class="none"
-                                            href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
-                                    <div class="task-profile-block">
-                                        <div class="taskpp">
-                                            <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="task-info">
-                                        <div>
-                                            <p class="author-name">
-                                                    <?= $taken['username']; ?>[<?= $taken['user'] ?>]
-                                            </p>
-                                        </div>
-                                        <div class="department-display">
-                                            <p><?= $taken['afdeling'] ?></p>
-                                        </div>
-                                        <div class="description-block">
-                                            <p class="description">
-                                                <?php if (mb_strlen($taken['beschrijving'], "UTF-8") > 15) {
-                                                    $taken['beschrijving'] = mb_substr($taken['beschrijving'], 0, 14, "UTF-8") . '...';
-                                                }
-                                                echo $taken['beschrijving']; ?>
-                                            </p>
-                                        </div>
-                                        <div class="date-block">
-                                            <p><?= $taken['deadline'] ?></p>
-                                        </div>
+                    <?php foreach ($takenlijst as $taken): ?>
+                        <?php if ($taken['user'] == $_SESSION['user_id']): ?>
+                            <!-- Hier moet een naam filter ooit komen -Kailash -->
+                            <div class="task-block">
+                                <h1 class="task-name"><a class="none"
+                                        href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
+                                <div class="task-profile-block">
+                                    <div class="taskpp">
+                                        <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
                                     </div>
                                 </div>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
+                                <div class="task-info">
+                                    <div>
+                                        <p class="author-name">
+                                            <?= $taken['username']; ?>[<?= $taken['user'] ?>]
+                                        </p>
+                                    </div>
+                                    <div class="department-display">
+                                        <p><?= $taken['afdeling'] ?></p>
+                                    </div>
+                                    <div class="description-block">
+                                        <p class="description">
+                                            <?php if (mb_strlen($taken['beschrijving'], "UTF-8") > 15) {
+                                                $taken['beschrijving'] = mb_substr($taken['beschrijving'], 0, 14, "UTF-8") . '...';
+                                            }
+                                            echo $taken['beschrijving']; ?>
+                                        </p>
+                                    </div>
+                                    <div class="date-block">
+                                        <p><?= $taken['deadline'] ?></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </main>
     </div>
+    <script src="js/script.js"></script>
+    <script src="js/darkmode.js"></script>
 </body>
 
 </html>

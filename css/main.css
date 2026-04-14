@@ -676,6 +676,79 @@ profile
 .own-tasks::-webkit-scrollbar-button {
     display: none;
 }
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark {
+    background: #0f1115;
+    color: #e4e4e4;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark p,
+body.dark a {
+    color: #aeb0b2;
+}
+
+body.dark .none {
+    color: #999b9f;
+}
+
+body.dark nav {
+    background: #1a2e28;
+}
+
+body.dark .nav-element {
+    background: #2c5f4e;
+}
+
+body.dark .nav-element:hover {
+    background: #3a7a65;
+}
+
+body.dark .kanban-element {
+    background: #15181d;
+    border: 3px solid #0d892e;
+}
+
+body.dark .task-block {
+    background: #1c1f26;
+    border: 3px solid #35725e;
+}
+
+body.dark .author-name {
+    color: #9ca3af;
+}
+
+body.dark .description {
+    color: #6b7280;
+}
+
+body.dark .department-display {
+    background: #24463c;
+    color: #e5e7eb;
+}
+
+body.dark #popup {
+    background: #1c1f26;
+    color: #e5e7eb;
+}
+
+body.dark .filter-button,
+body.dark .filter-close {
+    background: #24463c;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+    background: #1c1f26;
+    color: #e5e7eb;
+    border: 2px solid #444;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */

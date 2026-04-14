@@ -217,6 +217,7 @@ session_start();
         <button class="filter-close pointer" style="grid-column: span 2" onclick="closePopup()">Show Everything</button>
     </div>
     <script src="js/script.js"></script>
+    <script src="js/darkmode.js"></script>
 </body>
 
 </html>
