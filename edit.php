@@ -34,17 +34,21 @@ $id = $_GET['id']
                             <div class="select-area">
                                 <label for="afdeling">Afdeling</label>
                                 <label for="status">Status</label>
-                                <select value="<?= $taken['afdeling'] ?>" name="afdeling">
-                                    <option value="Personeel">Personeel</option>
-                                    <option value="Horeca">Horeca</option>
-                                    <option value="Techniek">Techniek</option>
-                                    <option value="Inkoop">Inkoop</option>
-                                    <option value="Klant">Klant</option>
-                                    <option value="Groen">Groen</option>
+                                <select name="afdeling">
+                                    <option value="Personeel" <?= $taken['afdeling'] === 'Personeel' ? 'selected' : '' ?>>Personeel
+                                    </option>
+                                    <option value="Horeca" <?= $taken['afdeling'] === 'Horeca' ? 'selected' : '' ?>>Horeca</option>
+                                    <option value="Techniek" <?= $taken['afdeling'] === 'Techniek' ? 'selected' : '' ?>>Techniek
+                                    </option>
+                                    <option value="Inkoop" <?= $taken['afdeling'] === 'Inkoop' ? 'selected' : '' ?>>Inkoop</option>
+                                    <option value="Klant" <?= $taken['afdeling'] === 'Klant' ? 'selected' : '' ?>>Klant</option>
+                                    <option value="Groen" <?= $taken['afdeling'] === 'Groen' ? 'selected' : '' ?>>Groen</option>
                                 </select>
+
                                 <select name="status">
                                     <option value="todo" <?= $taken['status'] === 'todo' ? 'selected' : '' ?>>To Do</option>
-                                    <option value="in_progress" <?= $taken['status'] === 'in_progress' ? 'selected' : '' ?>>In progress</option>
+                                    <option value="in_progress" <?= $taken['status'] === 'in_progress' ? 'selected' : '' ?>>In
+                                        progress</option>
                                     <option value="done" <?= $taken['status'] === 'done' ? 'selected' : '' ?>>Done</option>
                                 </select>
                             </div>
@@ -53,9 +57,8 @@ $id = $_GET['id']
                             <input value="<?= $taken['deadline'] ?>" type="date" name="deadline">
 
                             <label for="beschrijving">Edit description:</label>
-                            <textarea placeholder="Type your description here ..." name="beschrijving">
-                                <?= $taken['beschrijving'] ?>
-                            </textarea>
+                            <textarea placeholder="Type your description here ..."
+                                name="beschrijving"><?= $taken['beschrijving'] ?></textarea>
                             <div class="buttons">
                                 <button id="edit-submit" name="action" class="pointer form-submit" type="submit"
                                     value="edit">Submit</button>

@@ -216,7 +216,7 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
+    width: 30%;
     height: 65vh;
     background: white;
     border: 1px solid #0d892e;
@@ -225,6 +225,8 @@ main {
     z-index: 9999;
     padding: 20px;
     border-radius: 8px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 1fr 12%;
 }
 #popupOverlay {
     position: fixed;
