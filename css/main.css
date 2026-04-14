@@ -1051,7 +1051,7 @@ animations
     }
 }
 .moon:hover {
-    animation: moonShake 1.2xs ease-in-out forwards;
+    animation: moonShake 1.2s ease-in-out forwards;
 }
 @keyframes moonShake {
     0% {
