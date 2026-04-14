@@ -169,8 +169,8 @@ nav.expanded {
     transform: scale(1.08);
     background-color: #65ca80;
 }
-.active {
-    background: #71cc8a;
+.active{
+    background: #71cc8a !important;
     box-shadow: 0px 2px 15px #71cc8a;
 }
 .active svg path {
@@ -497,9 +497,9 @@ registration/login
 /* .registration {
     animation: slideUp 1.3s ease;
 } */
- .registration .task-block{
-        animation: slideUpStrong 1.6s ease forwards;
- }
+.registration .task-block {
+    animation: slideUpStrong 1.6s ease forwards;
+}
 .regh {
     grid-area: regh;
     text-align: center;
@@ -973,5 +973,97 @@ animations
     }
     to {
         transform: translateX(0);
+    }
+}
+.gear {
+    transition: transform 2s ease;
+}
+.gear:hover {
+    transform: rotate(360deg);
+}
+.bell {
+    transform-origin: top center;
+    transition: transform 0.2s ease;
+}
+
+.bell:hover {
+    animation: shake 1s ease-in-out;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    15% {
+        transform: rotate(8deg);
+    }
+    30% {
+        transform: rotate(-8deg);
+    }
+    45% {
+        transform: rotate(6deg);
+    }
+    60% {
+        transform: rotate(-6deg);
+    }
+    75% {
+        transform: rotate(3deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+.svg-icon:hover .left {
+    animation: expandLeft 0.8s ease-in-out forwards;
+}
+
+.svg-icon:hover .right {
+    animation: shrinkRight 0.8s ease-in-out forwards;
+}
+
+@keyframes expandLeft {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0.8);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes shrinkRight {
+    0% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(1.2);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes reset {
+    to {
+        transform: scaleY(1);
+    }
+}
+.moon:hover {
+    animation: moonShake 1.2xs ease-in-out forwards;
+}
+@keyframes moonShake {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(20deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }

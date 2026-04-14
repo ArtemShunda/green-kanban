@@ -1,22 +1,23 @@
 <nav>
     <a href="index.php">
         <div class="nav-element <?= $activePage === 'home' ? 'active' : '' ?>">
-            <svg viewBox="-6 -6 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000">
-                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <svg class="svg-icon" viewBox="-6 -6 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_iconCarrier">
-                    <path
+                    <!-- левая колонка -->
+                    <path class="left"
                         d="M10.5 19.9V4.1C10.5 2.6 9.86 2 8.27 2H4.23C2.64 2 2 2.6 2 4.1V19.9C2 21.4 2.64 22 4.23 22H8.27C9.86 22 10.5 21.4 10.5 19.9Z"
-                        stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                    <path
+                        stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <!-- правая колонка -->
+                    <path class="right"
                         d="M22 12.9V4.1C22 2.6 21.36 2 19.77 2H15.73C14.14 2 13.5 2.6 13.5 4.1V12.9C13.5 14.4 14.14 15 15.73 15H19.77C21.36 15 22 14.4 22 12.9Z"
-                        stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </g>
             </svg>
         </div>
     </a>
     <div class="nav-element" id="openPopup">
-        <svg viewBox="-6 -6 36 36" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <svg class="gear" viewBox="-6 -6 36 36" xmlns="http://www.w3.org/2000/svg" fill="none">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
@@ -29,24 +30,19 @@
         </svg>
     </div>
     <div class="nav-element">
-        <svg viewBox="-7 -6 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-            <g id="SVGRepo_iconCarrier">
-                <g clip-path="url(#ffffffclip0_429_11023)">
-                    <path d="M6 19V10C6 6.68629 8.68629 4 12 4V4C15.3137 4 18 6.68629 18 10V19M6 19H18M6 19H4M18 19H20"
-                        stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    </path>
-                    <path d="M11 22L13 22" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"
-                        stroke-linejoin="round"></path>
-                    <circle cx="12" cy="3" r="1" stroke="#ffffff" stroke-width="2.5"></circle>
-                </g>
-                <defs>
-                    <clipPath id="clip0_429_11023">
-                        <rect width="24" height="24" fill="white"></rect>
-                    </clipPath>
-                </defs>
+        <svg class="bell" viewBox="-7 -6 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+            <g clip-path="url(#clip0_429_11023)">
+                <path d="M6 19V10C6 6.68629 8.68629 4 12 4V4C15.3137 4 18 6.68629 18 10V19M6 19H18M6 19H4M18 19H20"
+                    stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M11 22L13 22" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <circle cx="12" cy="3" r="1" stroke="#ffffff" stroke-width="2.5" />
             </g>
+            <defs>
+                <clipPath id="clip0_429_11023">
+                    <rect width="24" height="24" fill="white" />
+                </clipPath>
+            </defs>
         </svg>
     </div>
     <div class="nav-element">
@@ -68,7 +64,7 @@
         </svg>
     </div>
     <div class="nav-element darkmode">
-        <svg viewBox="-6 -5 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fffffff">
+        <svg class="moon" viewBox="-6 -5 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#fffffff">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
             <g id="SVGRepo_iconCarrier">
