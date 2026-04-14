@@ -109,7 +109,7 @@ session_start();
                     </div>
                     <div class="kanban-element-main">
                         <?php foreach ($takenlijst as $taken): ?>
-                            <?php if ($taken['status'] == 'inprogress'): ?>
+                            <?php if ($taken['status'] == 'in_progress'): ?>
                                 <div class="task-block">
                                     <h1 class="task-name"><a class="none"
                                             href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
@@ -121,8 +121,7 @@ session_start();
                                     <div class="task-info">
                                         <div>
                                             <p class="author-name">
-                                                [<?= $_SESSION['username'];
-                                                $taken['user'] ?>]
+                                                <?= $taken['username']; ?>[<?= $taken['user'] ?>]
                                             </p>
                                         </div>
                                         <div class="department-display">
@@ -130,7 +129,10 @@ session_start();
                                         </div>
                                         <div class="description-block">
                                             <p class="description">
-                                                <?= $taken['beschrijving'] ?>
+                                                <?php if (mb_strlen($taken['beschrijving'], "UTF-8") > 15) {
+                                                    $taken['beschrijving'] = mb_substr($taken['beschrijving'], 0, 14, "UTF-8") . '...';
+                                                }
+                                                echo $taken['beschrijving']; ?>
                                             </p>
                                         </div>
                                         <div class="date-block">
@@ -170,7 +172,7 @@ session_start();
                                     <div class="task-info">
                                         <div>
                                             <p class="author-name">
-                                                [<?= $taken['user'] ?>]
+                                                <?= $taken['username']; ?>[<?= $taken['user'] ?>]
                                             </p>
                                         </div>
                                         <div class="department-display">
@@ -178,7 +180,10 @@ session_start();
                                         </div>
                                         <div class="description-block">
                                             <p class="description">
-                                                <?= $taken['beschrijving'] ?>
+                                                <?php if (mb_strlen($taken['beschrijving'], "UTF-8") > 15) {
+                                                    $taken['beschrijving'] = mb_substr($taken['beschrijving'], 0, 14, "UTF-8") . '...';
+                                                }
+                                                echo $taken['beschrijving']; ?>
                                             </p>
                                         </div>
                                         <div class="date-block">
