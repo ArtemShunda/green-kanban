@@ -15,7 +15,7 @@
             </svg>
         </div>
     </a>
-    <div class="nav-element">
+    <div class="nav-element" id="openPopup">
         <svg viewBox="-6 -6 36 36" xmlns="http://www.w3.org/2000/svg" fill="none">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>

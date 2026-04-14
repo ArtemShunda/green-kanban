@@ -13,6 +13,7 @@ if($action == "create"){
     $status = $_POST['status'];
     $deadline = $_POST['deadline'];
     $user = $_SESSION['user_id'] ?? null;
+    $username = $_SESSION['name'] ?? null;
     $created_at = date('Y-m-d H:i:s'); 
 
     if (!$user) {
@@ -27,8 +28,8 @@ if($action == "create"){
         $errors[] = "Please select a department!";
     }
 
-    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user, created_at) 
-              VALUES (:title, :beschrijving, :afdeling, :status, :deadline, :user, :created_at)";
+    $query = "INSERT INTO taken (titel, beschrijving, afdeling, status, deadline, user, username, created_at) 
+              VALUES (:title, :beschrijving, :afdeling, :status, :deadline, :user, :username, :created_at)";
 
     $statement = $conn->prepare($query);
 
@@ -39,6 +40,7 @@ if($action == "create"){
         ':status' => $status,
         ':deadline' => $deadline,
         ':user' => $user,
+        ':username' => $username,
         ':created_at' => $created_at
     ]);
 

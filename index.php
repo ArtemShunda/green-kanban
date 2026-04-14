@@ -31,7 +31,7 @@ session_start();
     $statement->execute();
     $user = $statement->fetchAll(PDO::FETCH_ASSOC);
     ?>
-    
+
 
     <div class="container">
         <?php $activePage = 'home';
@@ -70,7 +70,7 @@ session_start();
                                     <div class="task-info">
                                         <div>
                                             <p class="author-name">
-                                                [<?= $taken['user'] ?>]
+                                                <?= $taken['username']; ?>[<?= $taken['user'] ?>]
                                             </p>
                                         </div>
                                         <div class="department-display">
@@ -78,7 +78,10 @@ session_start();
                                         </div>
                                         <div class="description-block">
                                             <p class="description">
-                                                <?= $taken['beschrijving'] ?>
+                                                <?php if (mb_strlen($taken['beschrijving'], "UTF-8") > 15) {
+                                                    $taken['beschrijving'] = mb_substr($taken['beschrijving'], 0, 14, "UTF-8") . '...';
+                                                }
+                                                echo $taken['beschrijving']; ?>
                                             </p>
                                         </div>
                                         <div class="date-block">
@@ -118,7 +121,8 @@ session_start();
                                     <div class="task-info">
                                         <div>
                                             <p class="author-name">
-                                                [<?= $taken['user'] ?>]
+                                                [<?= $_SESSION['username'];
+                                                $taken['user'] ?>]
                                             </p>
                                         </div>
                                         <div class="department-display">
@@ -166,7 +170,7 @@ session_start();
                                     <div class="task-info">
                                         <div>
                                             <p class="author-name">
-                                                    [<?= $taken['user'] ?>]
+                                                [<?= $taken['user'] ?>]
                                             </p>
                                         </div>
                                         <div class="department-display">
@@ -195,6 +199,12 @@ session_start();
                 </div>
             </div>
         </main>
+    </div>
+    <div id="popupOverlay"></div>
+    <div id="popup">
+        <h2>Popup</h2>
+        <p></p>
+        <button onclick="closePopup()">Close</button>
     </div>
     <script src="js/script.js"></script>
 </body>
