@@ -214,19 +214,20 @@ main {
 #popup {
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 28%;
     transform: translate(-50%, -50%);
     width: 30%;
     height: 65vh;
     background: white;
-    border: 1px solid #0d892e;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    display: none;
+    border: 3px solid #0d892e;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: block;
     z-index: 9999;
     padding: 20px;
     border-radius: 8px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 10% 1fr 12%;
+    align-items: center;
 }
 #popupOverlay {
     position: fixed;
@@ -234,9 +235,26 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     display: none;
     z-index: 9998;
+}
+.filter-button {
+    height: 90%;
+    margin: 10px;
+    background: #2c5f4e;
+    color: white;
+    border: white;
+    font-size: 23px;
+    border-radius: 5px;
+}
+.filter-close {
+    height: 90%;
+    background: #2c5f4e;
+    color: white;
+    border: white;
+    border-radius: 5px;
+    font-size: 23px;
 }
 .greetings {
     padding: 30px;
@@ -567,17 +585,16 @@ textarea {
     border-radius: 10px;
     padding-top: 8px;
 }
-.buttons{
+.buttons {
     display: flex;
     align-items: flex;
 }
-.buttons button{
+.buttons button {
     border-radius: 10px;
     margin-left: 20px;
 }
-#edit-submit{
+#edit-submit {
     height: 30px;
-    
 }
 /* 
 ====================================
@@ -669,7 +686,7 @@ profile
 }
 
 .hidden1.show {
-    display: block; 
+    display: block;
 }
 
 /*

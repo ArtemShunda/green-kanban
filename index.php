@@ -25,7 +25,7 @@ session_start();
     $statement->execute();
     $takenlijst = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
     ?>
-    <?php require_once 'backend/conn.php';
+    <?php
     $query = "SELECT * FROM users";
     $statement = $conn->prepare($query);
     $statement->execute();
@@ -59,7 +59,7 @@ session_start();
                     <div class="kanban-element-main">
                         <?php foreach ($takenlijst as $taken): ?>
                             <?php if ($taken['status'] == 'todo'): ?>
-                                <div class="task-block">
+                                <div class="task-block <?= $taken['status']?>">
                                     <h1 class="task-name"><a class="none"
                                             href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
                                     <div class="task-profile-block">
@@ -110,7 +110,7 @@ session_start();
                     <div class="kanban-element-main">
                         <?php foreach ($takenlijst as $taken): ?>
                             <?php if ($taken['status'] == 'in_progress'): ?>
-                                <div class="task-block">
+                                <div class="task-block <?= $taken['status']?>">
                                     <h1 class="task-name"><a class="none"
                                             href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
                                     <div class="task-profile-block">
@@ -161,7 +161,7 @@ session_start();
                     <div class="kanban-element-main">
                         <?php foreach ($takenlijst as $taken): ?>
                             <?php if ($taken['status'] == 'done'): ?>
-                                <div class="task-block">
+                                <div class="task-block <?= $taken['status'] ?>">
                                     <h1 class="task-name"><a class="none"
                                             href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
                                     <div class="task-profile-block">
@@ -207,9 +207,14 @@ session_start();
     </div>
     <div id="popupOverlay"></div>
     <div id="popup">
-        <h2>Popup</h2>
-        <p></p>
-        <button onclick="closePopup()">Close</button>
+        <h1 style="grid-column: span 2; text-align: center;">Choose a filter</h1>
+        <button onclick="closePopup()" class="filter-button pointer every-done">
+            DONE
+        </button>
+        <button onclick="closePopup()" class="filter-button pointer every-not-done">
+            NOT DONE
+        </button>
+        <button class="filter-close pointer" style="grid-column: span 2" onclick="closePopup()">Show Everything</button>
     </div>
     <script src="js/script.js"></script>
 </body>
