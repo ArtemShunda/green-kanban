@@ -221,7 +221,7 @@ main {
     background: white;
     border: 3px solid #0d892e;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    display: block;
+    display: none;
     z-index: 9999;
     padding: 20px;
     border-radius: 8px;
@@ -494,6 +494,12 @@ registration/login
     grid-template-areas: "regh regh" "regf const";
     align-items: center;
 }
+/* .registration {
+    animation: slideUp 1.3s ease;
+} */
+ .registration .task-block{
+        animation: slideUpStrong 1.6s ease forwards;
+ }
 .regh {
     grid-area: regh;
     text-align: center;
@@ -609,12 +615,14 @@ profile
     display: grid;
     grid-template-columns: 30% 1fr;
     grid-template-rows: 100%;
+    overflow: hidden;
 }
 .personal-info-block {
     display: grid;
     grid-template-rows: 40% 15% 1fr;
     grid-template-columns: 100%;
     padding-top: 40px;
+    animation: slideIn 1.6s forwards;
 }
 .profile-block-border {
     width: 60%;
@@ -870,11 +878,27 @@ animations
         transform: translateY(0);
     }
 }
+@keyframes slideUpStrong {
+    from {
+        transform: translateY(500%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
 @keyframes slideDown {
     from {
         transform: translateY(-350px);
     }
     to {
         transform: translateY(0);
+    }
+}
+@keyframes slideRight {
+    from {
+        transform: translateX(150%);
+    }
+    to {
+        transform: translateX(0);
     }
 }

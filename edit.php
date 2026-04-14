@@ -19,7 +19,6 @@ $id = $_GET['id']
     <div class="container">
         <?php require_once "templates/nav.php" ?>
         <main id="edit">
-            <h1 class="repo-name">Edit issue</h1>
             <div class="create-block">
                 <?php foreach ($takenlijst as $taken): ?>
                     <?php if ($taken['id'] == $id): ?>
