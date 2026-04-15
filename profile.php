@@ -21,10 +21,10 @@ session_start();
         <?php $activePage = 'profile';
         require_once "templates/nav.php" ?>
         <main id="reg" class="registration">
-            <div class="profile-block"> 
+            <div class="profile-block">
                 <div class="personal-info-block">
-                    <div class="profile-block-border">
-                        <img class="profile-picture-block" src="img/user-photo.jpg" alt="">
+                    <div class="profile-block-border openPopup">
+                        <img src="<?= $_SESSION['avatar'] ?>" class="profile-picture-block" alt="avatar">
                     </div>
                     <div class="personal-username">
                         <h2 style="margin: 0;">
@@ -49,7 +49,7 @@ session_start();
                                         href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
                                 <div class="task-profile-block">
                                     <div class="taskpp">
-                                        <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
+                                        <img src="<?= $_SESSION['avatar'] ?>" class="profile-picture" alt="avatar">
                                     </div>
                                 </div>
                                 <div class="task-info">
@@ -79,6 +79,14 @@ session_start();
                 </div>
             </div>
         </main>
+    </div>
+    <div id="popupOverlay"></div>
+    <div id="popup">
+        <h1 style="grid-column: span 2; text-align: center;">Choose a new picture</h1>
+        <form action="<?php echo $base_url; ?>/app/Http/Controllers/avatarController.php" method="POST" enctype="multipart/form-data">
+            <input type="file" name="avatar" accept="image/*" required>
+            <button type="submit">Uploaden</button>
+        </form>
     </div>
     <script src="js/script.js"></script>
     <script src="js/darkmode.js"></script>

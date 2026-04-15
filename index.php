@@ -12,7 +12,6 @@ session_start();
 <html lang="nl">
 
 <head>
-    <title>DevLand</title>
     <?php require_once 'templates/head.php'; ?>
 </head>
 
@@ -25,10 +24,10 @@ session_start();
     $takenlijst = $statement->fetchAll(mode: PDO::FETCH_ASSOC);
     ?>
     <?php
-    $query = "SELECT * FROM users";
+    $query = " SELECT taken.*, users.avatar FROM taken LEFT JOIN users ON taken.user = users.id";
     $statement = $conn->prepare($query);
     $statement->execute();
-    $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $takenlijst = $statement->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
 
@@ -58,12 +57,12 @@ session_start();
                     <div class="kanban-element-main">
                         <?php foreach ($takenlijst as $taken): ?>
                             <?php if ($taken['status'] == 'todo'): ?>
-                                <div class="task-block <?= $taken['status']?>">
+                                <div class="task-block <?= $taken['status'] ?>">
                                     <h1 class="task-name"><a class="none"
                                             href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
                                     <div class="task-profile-block">
                                         <div class="taskpp">
-                                            <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
+                                            <img class="task-profile-picture" src="<?= $taken['avatar'] ?? 'img/user-photo.jpg' ?>?v=<?= time() ?>">
                                         </div>
                                     </div>
                                     <div class="task-info">
@@ -109,12 +108,12 @@ session_start();
                     <div class="kanban-element-main">
                         <?php foreach ($takenlijst as $taken): ?>
                             <?php if ($taken['status'] == 'in_progress'): ?>
-                                <div class="task-block <?= $taken['status']?>">
+                                <div class="task-block <?= $taken['status'] ?>">
                                     <h1 class="task-name"><a class="none"
                                             href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
                                     <div class="task-profile-block">
                                         <div class="taskpp">
-                                            <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
+                                            <img class="task-profile-picture" src="<?= $taken['avatar'] ?? 'img/user-photo.jpg' ?>?v=<?= time() ?>">
                                         </div>
                                     </div>
                                     <div class="task-info">
@@ -165,7 +164,7 @@ session_start();
                                             href="edit.php?id=<?php echo $taken['id'] ?>"><?= $taken['titel'] ?></a></h1>
                                     <div class="task-profile-block">
                                         <div class="taskpp">
-                                            <img class="task-profile-picture" src="img/user-photo.jpg" alt="">
+                                            <img class="task-profile-picture" src="<?= $taken['avatar'] ?? 'img/user-photo.jpg' ?>?v=<?= time() ?>">
                                         </div>
                                     </div>
                                     <div class="task-info">

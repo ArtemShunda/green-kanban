@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (toggle) {
         toggle.addEventListener("click", () => {
             document.body.classList.toggle("dark");
-
             if (document.body.classList.contains("dark")) {
                 localStorage.setItem("theme", "dark");
                 toggle.innerHTML = sun;

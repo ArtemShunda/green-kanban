@@ -3,11 +3,15 @@ let popupOverlay = document.getElementById("popupOverlay")
 let everyDone = document.querySelector('.every-done')
 let everyNotDone = document.querySelector('.every-not-done')
 let taskBlock = document.querySelectorAll('.task-block')
+let openPopup = document.querySelectorAll('.openPopup')
 
-document.getElementById("openPopup").addEventListener("click", () => {
+for(let openElement of openPopup){
+    openElement.addEventListener("click", () => {
     popup.style.display = "grid"
     popupOverlay.style.display = "block"
+    document.getElementById("openPopup").classList.toggle('active')
 });
+}
 function closePopup() {
     popup.style.display = "none"
     popupOverlay.style.display = "none"
@@ -18,6 +22,7 @@ function closePopup() {
 document.getElementById("popupOverlay").addEventListener("click", () => {
     popup.style.display = "none"
     popupOverlay.style.display = "none"
+    document.getElementById("openPopup").classList.toggle('active')
 });
 
 everyDone.addEventListener('click', function(){
