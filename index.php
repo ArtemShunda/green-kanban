@@ -14,7 +14,6 @@ session_start();
 <head>
     <title>DevLand</title>
     <?php require_once 'templates/head.php'; ?>
-    <link rel="icon" href="img/logo-big-fill-only.png">
 </head>
 
 <body>
